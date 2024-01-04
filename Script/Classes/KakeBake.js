@@ -19,4 +19,7 @@ class KakeBake {
 
   //privat felt
   #bekledning = "forkle. BARE forkle";
+  suitUp(){
+    return this.#bekledning;
+  }
 }
