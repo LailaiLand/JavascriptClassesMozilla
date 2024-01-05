@@ -34,8 +34,9 @@ main.appendChild(afeBox);
 main.appendChild(fabBox);
 main.appendChild(whiteBox);
 
-const trans = new Flag(getColors(fab), getColors(white), getColors(afe));
+const trans = document.createElement("trans-flag");
 main.appendChild(trans);
+console.log("flag tag", trans)
 
 function getColors(source) {
   let colorString = "rgb(";
