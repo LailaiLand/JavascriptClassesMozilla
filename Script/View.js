@@ -36,15 +36,17 @@ main.appendChild(whiteBox);
 
 const trans = document.createElement("trans-flag");
 main.appendChild(trans);
-console.log("flag tag", trans)
+console.log("flag tag", trans);
 
 function getColors(source) {
-  let colorString = "rgb(";
-  for (let i = 0; i < source.values.length; i++) {
-    colorString += `${source.values[i]}`;
-    if (i == source.values.length - 1) {
-      colorString += ")";
-    } else colorString += ",";
-  }
+  let colorString =
+    "rgb(" +
+    source.getRed() +
+    ", " +
+    source.getGreen() +
+    ", " +
+    source.getBlue() +
+    ")";
+  console.log("Fargestreng", colorString);
   return colorString;
 }
