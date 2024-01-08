@@ -1,29 +1,36 @@
 class Color {
+  #values;
   constructor(r, g, b) {
-    this.values = [r, g, b];
+    this.#values = [r, g, b];
   }
 
   getRed() {
-    console.log("value getRed henter", this.values[0]);
-    return this.values[0];
+    return this.#values[0];
   }
   setRed(value) {
-    this.values[0] = value;
+    this.#checkRange(value);
+    this.#values[0] = value;
   }
 
   getGreen() {
-    return this.values[1];
+    return this.#values[1];
   }
   setGreen(value) {
-    this.values[1] = value;
+    this.#checkRange(value);
+    this.#values[1] = value;
   }
 
   getBlue() {
-    return this.values[2];
+    return this.#values[2];
   }
   setBlue(value) {
-    this.values[2] = value;
+    this.#checkRange(value);
+    this.#values[2] = value;
   }
 
-
+  #checkRange(value) {
+    if (value < 0 || value > 255) {
+      throw new RangeError("Value must be a number between 0 and 255");
+    }
+  }
 }

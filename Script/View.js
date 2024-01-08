@@ -47,6 +47,5 @@ function getColors(source) {
     ", " +
     source.getBlue() +
     ")";
-  console.log("Fargestreng", colorString);
   return colorString;
 }
