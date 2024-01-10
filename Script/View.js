@@ -1,13 +1,26 @@
 const main = document.getElementById("app");
+
+//lager en instans av klassen
 const baking = new KakeBake();
+
+//lager en ny klasse via uttrykk, heller enn en egen fil en må new-e
 const expressionBaking = class KakeBakeUttrykk {
   smak = "jordbær";
 };
 const nyBaking = new expressionBaking();
+
+//lese et felt laget av constructor
 console.log("Kakesmak", baking.kakeSmak);
+
+//lese felt i uttrykket for å se om det virker på samme måte
 console.log("Uttrykkssmak", nyBaking.smak);
+
+//legg merke til at statiske felt leses rett fra klassen, ikke fra instansen
 console.log("Statisk test", KakeBake.kakeTopping);
+console.log("Kan ikke statiske felt leses fra instansen?", baking.kakeTopping);
 console.log("Test felt uten statisk", KakeBake.kakeSmak);
+
+//den eksponerte metoden returnerer det private feltet
 console.log("Test lese privat felt", baking.bekledning);
 console.log("Ta på klær", baking.suitUp());
 
