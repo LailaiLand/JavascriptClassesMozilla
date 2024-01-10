@@ -4,26 +4,26 @@ class Color {
     this.#values = [r, g, b];
   }
 
-  getRed() {
+  get Red() {
     return this.#values[0];
   }
-  setRed(value) {
+  set Red(value) {
     this.#checkRange(value);
     this.#values[0] = value;
   }
 
-  getGreen() {
+  get Green() {
     return this.#values[1];
   }
-  setGreen(value) {
+  set Green(value) {
     this.#checkRange(value);
     this.#values[1] = value;
   }
 
-  getBlue() {
+  get Blue() {
     return this.#values[2];
   }
-  setBlue(value) {
+  set Blue(value) {
     this.#checkRange(value);
     this.#values[2] = value;
   }

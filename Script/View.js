@@ -41,11 +41,11 @@ console.log("flag tag", trans);
 function getColors(source) {
   let colorString =
     "rgb(" +
-    source.getRed() +
+    source.Red +
     ", " +
-    source.getGreen() +
+    source.Green +
     ", " +
-    source.getBlue() +
+    source.Blue +
     ")";
   return colorString;
 }
