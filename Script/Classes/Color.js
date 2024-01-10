@@ -1,5 +1,11 @@
 class Color {
   #values;
+
+  static {
+    Color.grey = "rgb(128, 128, 128)";
+    Color.red = "rgb(255, 0, 0)";
+  }
+
   constructor(r, g, b) {
     this.#values = [r, g, b];
   }

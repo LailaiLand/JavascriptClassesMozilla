@@ -54,6 +54,16 @@ const trans = document.createElement("trans-flag");
 addThis(trans);
 console.log("flag tag", trans);
 
+//test av statisk initialiseingsblokk. pre-loaded farger en kan kalle på uten instans
+const redList = document.createElement("ul");
+redList.style.backgroundColor = Color.red;
+redList.innerHTML = "foo"
+const greyList = document.createElement("ul");
+greyList.style.backgroundColor = Color.grey;
+greyList.innerHTML = "bar";
+redList.appendChild(greyList);
+addThis(redList);
+
 //merk at "get Red()" i klassen er en metode, men prefixen "get" eksponerer den private verdien som et offentlig felt
 function getColors(source) {
   let colorString =
