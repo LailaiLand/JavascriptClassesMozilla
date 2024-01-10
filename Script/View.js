@@ -24,6 +24,7 @@ console.log("Test felt uten statisk", KakeBake.kakeSmak);
 console.log("Test lese privat felt", baking.bekledning);
 console.log("Ta på klær", baking.suitUp());
 
+//bruker klasse til å sette en RGB-verdi
 const fab = new Color(255, 170, 187);
 console.log("Fab farge", fab.values);
 const fabBox = document.createElement("p");
@@ -35,6 +36,7 @@ const whiteBox = document.createElement("p");
 whiteBox.style.backgroundColor = getColors(white);
 whiteBox.innerHTML = "White";
 
+//en kan sende hexadecimaler til parseInt, om en sier til den at det er 16-tallssystemet
 const afe = new Color(
   parseInt("AA", 16),
   parseInt("FF", 16),
@@ -43,22 +45,23 @@ const afe = new Color(
 const afeBox = document.createElement("p");
 afeBox.style.backgroundColor = getColors(afe);
 afeBox.innerHTML = "AFE";
-main.appendChild(afeBox);
-main.appendChild(fabBox);
-main.appendChild(whiteBox);
+addThis(afeBox);
+addThis(fabBox);
+addThis(whiteBox);
 
+//tidlig forsøk på web-komponent. Litt usikker på define.customElement og connectedCallback, må læres om
 const trans = document.createElement("trans-flag");
-main.appendChild(trans);
+addThis(trans);
 console.log("flag tag", trans);
 
+//merk at "get Red()" i klassen er en metode, men prefixen "get" eksponerer den private verdien som et offentlig felt
 function getColors(source) {
   let colorString =
-    "rgb(" +
-    source.Red +
-    ", " +
-    source.Green +
-    ", " +
-    source.Blue +
-    ")";
+    "rgb(" + source.Red + ", " + source.Green + ", " + source.Blue + ")";
   return colorString;
+}
+
+//hjelpefunksjon så jeg kan slenge på lett, uten å gå innom "main" manuelt
+function addThis(element) {
+  main.appendChild(element);
 }
