@@ -13,4 +13,12 @@ class AlphaColor extends Color {
     }
     this.#alpha = value;
   }
+  toString() {
+    let colorString = super.toString();
+    colorString = colorString.substring(0, colorString.length - 1);
+    colorString += ", ";
+    colorString += this.#alpha;
+    colorString += ")";
+    return colorString;
+  }
 }

@@ -34,6 +34,13 @@ class Color {
     this.#values[2] = value;
   }
 
+  toString() {
+    let colorString = "rgb(";
+    colorString += this.#values.join(", ");
+    colorString += ")";
+    return colorString;
+  }
+  
   #checkRange(value) {
     if (value < 0 || value > 255) {
       throw new RangeError("Value must be a number between 0 and 255");
