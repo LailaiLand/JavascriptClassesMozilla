@@ -57,21 +57,40 @@ console.log("flag tag", trans);
 //test av statisk initialiseingsblokk. pre-loaded farger en kan kalle på uten instans
 const redList = document.createElement("ul");
 redList.style.backgroundColor = Color.red;
-redList.innerHTML = "foo"
+redList.innerHTML = "foo";
 const greyList = document.createElement("ul");
 greyList.style.backgroundColor = Color.grey;
 greyList.innerHTML = "bar";
+const transparentGreen = new AlphaColor(0, 255, 0, 0.2);
+const transGreenBox = document.createElement("ul");
+transGreenBox.style.backgroundColor = getColors(transparentGreen);
+transGreenBox.innerHTML = "fucked up beyoand all recognition";
+greyList.appendChild(transGreenBox);
 redList.appendChild(greyList);
 addThis(redList);
 
 //merk at "get Red()" i klassen er en metode, men prefixen "get" eksponerer den private verdien som et offentlig felt
 function getColors(source) {
   let colorString =
-    "rgb(" + source.Red + ", " + source.Green + ", " + source.Blue + ")";
+    "rgb(" +
+    source.Red +
+    ", " +
+    source.Green +
+    ", " +
+    source.Blue +
+    ", " +
+    alphaCheck(source) +
+    ")";
   return colorString;
 }
 
 //hjelpefunksjon så jeg kan slenge på lett, uten å gå innom "main" manuelt
 function addThis(element) {
   main.appendChild(element);
+}
+
+function alphaCheck(source) {
+  if (source.alpha === undefined) {
+    return "1";
+  } else return source.alpha;
 }
