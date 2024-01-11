@@ -6,9 +6,13 @@
       this.root = document.createElement("div");
       this.shadowRoot.appendChild(this.root);
       const sheet = new CSSStyleSheet();
-      sheet.replaceSync(
-        ".flagBox { width: 1500px; height: 150px; margin-top: 0px; margin-bottom: 0px;}"
-      );
+      sheet.replaceSync(`
+        .flagBox {
+           width: 1500px; 
+           height: 150px; 
+           margin-top: 0px; 
+           margin-bottom: 0px;
+          }`);
       this.shadowRoot.adoptedStyleSheets = [sheet];
       this.model = {
         color1: "rgb(91, 206, 250)",
