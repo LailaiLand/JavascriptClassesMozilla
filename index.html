@@ -12,7 +12,66 @@
     <script src="Script/Classes/Flag.js"></script>
   </head>
   <body>
-    <div id="app">Content</div>
+    <div id="app">
+      When authoring custom element constructors, authors are bound by the
+      following conformance requirements:
+      <ul>
+        <li>
+          A parameter-less call to super() must be the first statement in the
+          constructor body, to establish the correct prototype chain and this
+          value before any further code is run.
+        </li>
+        <li>
+          A return statement must not appear anywhere inside the constructor
+          body, unless it is a simple early-return (return or return this).
+        </li>
+        <li>
+          The constructor must not use the document.write() or document.open()
+          methods.
+        </li>
+        <li>
+          The element's attributes and children must not be inspected, as in the
+          non-upgrade case none will be present, and relying on upgrades makes
+          the element less usable.
+        </li>
+        <li>
+          The element must not gain any attributes or children, as this violates
+          the expectations of consumers who use the createElement or
+          createElementNS methods.
+        </li>
+        <li>
+          In general, work should be deferred to connectedCallback as much as
+          possible—especially work involving fetching resources or rendering.
+          However, note that connectedCallback can be called more than once, so
+          any initialization work that is truly one-time will need a guard to
+          prevent it from running twice.
+        </li>
+        <li>
+          In general, the constructor should be used to set up initial state and
+          default values, and to set up event listeners and possibly a shadow
+          root.
+        </li>
+      </ul>
+      The define() method takes the following arguments:
+      <ul>
+        <li>
+          <h3>name</h3>
+          The name of the element. This must start with a lowercase letter,
+          contain a hyphen, and satisfy certain other rules listed in the
+          specification's definition of a valid name.
+        </li>
+        <li>
+          <h3>constructor</h3>
+          The custom element's constructor function.
+        </li>
+        <li>
+          <h3>options</h3>
+          Only included for customized built-in elements, this is an object
+          containing a single property extends, which is a string naming the
+          built-in element to extend.
+        </li>
+      </ul>
+    </div>
     <script src="Script/View.js"></script>
   </body>
 </html>
